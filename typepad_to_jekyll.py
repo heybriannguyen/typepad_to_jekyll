@@ -17,7 +17,7 @@ def make_posts(import_file):
         "BASENAME": "",
     }
     categories = []
-    post = """"""
+    body = """"""
 
     with open(import_file, "r") as f_r:
         for line in f_r:
@@ -34,21 +34,21 @@ def make_posts(import_file):
                 continue
             elif line.startswith("EXTENDED BODY:"):
                 canWrite = False
-                write_body(post, f_name)
+                write_body(body, f_name)
                 # Prepares loop for new post and its categories
-                post = """"""
+                body = """"""
                 categories.clear()
             elif canWrite:
-                post += line
+                body += line
 
 
 # Writes the filename
 def write_f_name(f_matter):
     return (
-        f"""{f_matter['DATE'][6:10]}"""
-        + f"""-{f_matter['DATE'][:2]}"""  # Year
-        + f"""-{f_matter['DATE'][3:5]}"""  # Month
-        + f"""-{f_matter['BASENAME']}.md"""  # Day  # Filename
+        f"""{f_matter['DATE'][6:10]}"""  # Year
+        + f"""-{f_matter['DATE'][:2]}"""  # Month
+        + f"""-{f_matter['DATE'][3:5]}"""  # Day
+        + f"""-{f_matter['BASENAME']}.md"""  # Filename
     )
 
 
@@ -67,10 +67,10 @@ def write_f_matter(f_name, f_matter, categories):
         )
 
 
-# Writes the post
-def write_body(post, f_name):
+# Writes the body
+def write_body(body, f_name):
     with open(f_name, "a") as f_w:
-        f_w.write(post)
+        f_w.write(body)
 
 
 if __name__ == "__main__":
