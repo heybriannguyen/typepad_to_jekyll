@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-
-from datetime import datetime
 import sys
 
 
@@ -74,6 +72,4 @@ def write_body(body, f_name):
 
 
 if __name__ == "__main__":
-    start_time = datetime.now()
     make_posts(str(sys.argv[1]))
-    print(datetime.now() - start_time)
